@@ -40,7 +40,10 @@ L.U.FeatureMixin = {
   preInit: function () {},
 
   isReadOnly: function () {
-    return this.datalayer && this.datalayer.isRemoteLayer()
+    return (this.datalayer && this.datalayer.isRemoteLayer()) || (
+      // owner is integer or string, user.id is integer
+      this.properties.owner && this.properties.owner.toString() !== this.map.options.user.id.toString()
+    )
   },
 
   getSlug: function () {
