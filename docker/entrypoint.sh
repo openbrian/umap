@@ -8,6 +8,6 @@ umap migrate
 # then collect static files
 umap collectstatic --noinput
 # compress static files
-umap compress
+#umap compress
 # run uWSGI
 exec uwsgi --ini docker/uwsgi.ini
